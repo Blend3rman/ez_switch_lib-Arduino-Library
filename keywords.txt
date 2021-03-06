@@ -1,0 +1,37 @@
+# data and data structures
+Switches	KEYWORD1
+switches	KEYWORD2
+switch_configured	KEYWORD2
+switch_type	KEYWORD2
+switch_pin	KEYWORD2
+switch_circuit_type	KEYWORD2
+switch_pending	KEYWORD2
+switch_db_start	KEYWORD2
+switch_on_value	KEYWORD2
+switch_status	KEYWORD2
+_debounce	KEYWORD2
+_max_switches	KEYWORD2
+_num_entries	KEYWORD2
+
+# macro definitions
+switched	KEYWORD2
+bad_params	KEYWORD2
+add_failure	KEYWORD2
+on	KEYWORD2
+configured	KEYWORD2
+button_switch	KEYWORD2
+toggle_switch	KEYWORD2
+not_used	KEYWORD2
+circuit_C1	KEYWORD2
+circuit_C2	KEYWORD2
+
+
+# functions
+read_switch	KEYWORD2
+read_toggle_switch	KEYWORD2
+read_button_switch	KEYWORD2
+add_switch	KEYWORD2
+num_free_switch_slots	KEYWORD2
+set_debounce	KEYWORD2
+print_switch	KEYWORD2
+print_switches	KEYWORD2

@@ -185,7 +185,7 @@ void loop()
 //
 // Print the current status/setting of each toggle switch configured.
 // We scan down my_switch_data to pick out toggle switches and if they
-// configured access theit status.
+// are configured access their status.
 //
 
 void print_toggle_status() {
@@ -212,7 +212,7 @@ void print_toggle_status() {
 // Return values from add_switch are:
 //    >= 0 the switch control structure entry number ('switch_id') for the switch added,
 //      -1 no slots available in the switch control structure,
-//      -2 given paramter(s) for switch are not valid.
+//      -2 given parameter(s) for switch are not valid.
 
 void create_my_switches() {
   for (int sw = 0; sw < num_switches; sw++) {

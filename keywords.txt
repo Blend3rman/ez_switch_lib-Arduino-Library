@@ -1,3 +1,12 @@
+# Arduino Switch Library for configuring different switch type wired
+# in common circuit schemes.
+#
+# Ron Bentley, Stafford (UK), March 2021, version 1.00
+#
+# This example and code is in the public domain and
+# may be used without restriction and without warranty.
+#
+
 # data and data structures
 Switches	KEYWORD1
 switches	KEYWORD2
@@ -9,6 +18,10 @@ switch_pending	KEYWORD2
 switch_db_start	KEYWORD2
 switch_on_value	KEYWORD2
 switch_status	KEYWORD2
+switch_out_pin	KEYWORD2
+switch_out_pin_status	KEYWORD2
+
+# private variables
 _debounce	KEYWORD2
 _max_switches	KEYWORD2
 _num_entries	KEYWORD2
@@ -17,6 +30,8 @@ _num_entries	KEYWORD2
 switched	KEYWORD2
 bad_params	KEYWORD2
 add_failure	KEYWORD2
+link_success	KEYWORD2
+link_failure	KEYWORD2
 on	KEYWORD2
 configured	KEYWORD2
 button_switch	KEYWORD2
@@ -31,6 +46,7 @@ read_switch	KEYWORD2
 read_toggle_switch	KEYWORD2
 read_button_switch	KEYWORD2
 add_switch	KEYWORD2
+link_switch_to_output	KEYWORD2
 num_free_switch_slots	KEYWORD2
 set_debounce	KEYWORD2
 print_switch	KEYWORD2

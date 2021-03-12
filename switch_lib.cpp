@@ -1,3 +1,12 @@
+// Arduino Switch Library for configuring different switch type wired
+// in common circuit schemes.
+//
+// Ron Bentley, Stafford (UK), March 2021, version 1.00
+//
+// This example and code is in the public domain and
+// may be used without restriction and without warranty.
+//
+
 #include <Arduino.h>
 #include <switch_lib.h>
 
@@ -30,11 +39,24 @@ Switches::Switches(byte max_switches)
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 bool Switches::read_switch(byte sw) {
+  bool sw_status;
   if (sw < 0 || sw >= _num_entries) return !switched; // out of range, slot 'sw' is not configured with a switch
   if (switches[sw].switch_type == button_switch) {
-    return read_button_switch(sw);
+    sw_status = read_button_switch(sw);
+  } else {
+    sw_status = read_toggle_switch(sw);
   }
-  return read_toggle_switch(sw);
+  // now determine if switch has output pin associated and if switched
+  // flip the output's status, ie HIGH->LOW, or LOW->HIGH
+  if (sw_status == switched && switches[sw].switch_out_pin > 0)
+   {
+     // flip the output level of associated switch output pin, if defined
+     bool status = switches[sw].switch_out_pin_status; // last status value of out_pin
+     status = HIGH - status;                           // flip the status value
+     switches[sw].switch_out_pin_status = status;      // update current status value
+     digitalWrite(switches[sw].switch_out_pin, status);
+   }
+   return sw_status;
 }  // End of read_switch
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -139,10 +161,39 @@ int Switches::add_switch(byte sw_type, byte sw_pin, byte circ_type) {
       switches[_num_entries].switch_status = !on;
     }
     pinMode(sw_pin, circ_type);  // establish pin set up
+    // ensure no mapping to an output pin until created explicitly
+    switches[_num_entries].switch_out_pin        = 0;
+    switches[_num_entries].switch_out_pin_status = LOW;  // set LOW unless explicitly changed
+
     _num_entries++;              // point to next free slot
     return _num_entries - 1;     // return 'switch_id' - given switch now added to switch control structure
   } else return add_failure;     // no room left to add another switch!
 }  // End add_switch
+
+
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+// Link or delink the given switch to the given digital pin as an output
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+int Switches::link_switch_to_output(byte switch_id, byte output_pin, bool HorL){
+  if(switch_id > _num_entries) {return link_failure;} // no such switch
+  if (output_pin == 0){
+    // delink this output from this switch, set te output to the required level first
+    if (switches[switch_id].switch_out_pin == 0){
+      // no output pin previously defined
+      return link_failure;
+    }
+    // set existing pin to level required state before clearing the link
+    digitalWrite(switches[switch_id].switch_out_pin, HorL); 
+  }else {
+    // initialise given output pin
+    pinMode(output_pin, OUTPUT); 
+    digitalWrite(output_pin, HorL); // set to param value until switched
+  }
+  switches[switch_id].switch_out_pin        = output_pin;
+  switches[switch_id].switch_out_pin_status = HorL;
+  return link_success;           // success
+}
 
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // Return the number of slots left unused
@@ -183,6 +234,10 @@ void Switches::print_switch(byte sw) {
     Serial.print( switches[sw].switch_on_value);
     Serial.print("\tsw_status= ");
     Serial.println(switches[sw].switch_status);
+    Serial.print("\t\t\top_pin= ");
+    Serial.print(switches[sw].switch_out_pin);
+    Serial.print("\top_status= ");
+    Serial.println(switches[sw].switch_out_pin_status);
     Serial.flush();
   }
 } // End print_switch
@@ -192,6 +247,7 @@ void Switches::print_switch(byte sw) {
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 void Switches::print_switches() {
+  Serial.println(F("\nDeclared & configured switches:"));
   for (byte sw = 0; sw < _num_entries; sw++) {
     print_switch(sw);
   }

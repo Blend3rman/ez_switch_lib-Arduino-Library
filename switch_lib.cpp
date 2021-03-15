@@ -80,7 +80,7 @@ bool Switches::read_toggle_switch(byte sw) {
     // Switch change detected so start debounce cycle
     switches[sw].switch_pending = true;
     switches[sw].switch_db_start = millis();  // set start of debounce timing
-  } else {
+  }
     if (switches[sw].switch_pending) {
       // We are in the switch transition cycle so check if debounce period has elapsed
       if (millis() - switches[sw].switch_db_start >= _debounce) {
@@ -88,8 +88,7 @@ bool Switches::read_toggle_switch(byte sw) {
         switches[sw].switch_status  = !switches[sw].switch_status;  // flip status
         switches[sw].switch_pending = false;                        // cease transition cycle
         return switched;
-      }
-    }
+     }
   }
   return !switched;
 } // End of read_toggle_switch

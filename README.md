@@ -15,7 +15,7 @@ Such a simple device, but with such a myriad of styles, types and characteristic
 
 **What Does the <switch_lib> Library Offer?**
 
-In a nutshell, <switch_lib> provides a set of enhanced capabilities for reading switches of different types and different connection schemes, and removes from the end user developer issues regarding switching 'noise'. Indeed, <switch_lib> gives the end user developer a choice in the way a switch can be connected, supporting both of the most common wiring schemes without additional components beyond wires and, if wished, 10k ohm pull down resistors - see figures 1 and 2 of the schematics below. The <switch_lib> library provides a software approach to switch management and control.
+In a nutshell, <switch_lib> provides a set of enhanced capabilities for reading switches of different types and different connection schemes, and removes from the end user developer issues regarding switching 'noise'. Indeed, <switch_lib> gives the end user developer a choice in the way a switch can be connected, supporting both of the most common wiring schemes without additional components beyond wires and, if wished, 10k ohm pull down resistors. The <switch_lib> library provides a software approach to switch management and control.
 
 **Features**
 

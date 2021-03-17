@@ -7,9 +7,9 @@ Read the User Guide for a comprehensive appreciation and understanding.
 
 Switches can be troublesome to the uninitiated, and to those well used to incorporating them into their projects. It would also appear to be the same in the non-Arduino world...
 
-"...When you mix with the wrong energy, there's bound to be an explosion. Pay attention and switch lanes when the signal changes. What's really real, is ultimately revealed..." T.F. Hodge
+_"...When you mix with the wrong energy, there's bound to be an explosion. Pay attention and switch lanes when the signal changes. What's really real, is ultimately revealed..."_ T.F. Hodge
 
-"...Nothing is wrong with darkness provided you control the switch..." Aniekee Tochukwu Ezekiel
+_"...Nothing is wrong with darkness provided you control the switch..."_ Aniekee Tochukwu Ezekiel
 
 Such a simple device, but with such a myriad of styles, types and characteristics. But if you are happy and content with dealing with switches of all types then perhaps this article is not for you, keep on doing what you are comfortable doing. However, if switches are new to you, you struggle with them or want a different set of tools and methods for incorporating them into your projects then read on - the <switch_lib> library offers support.
 

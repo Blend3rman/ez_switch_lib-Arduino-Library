@@ -95,7 +95,7 @@ void loop() {
     if (guesses[0] < sequence[0]) {
       // poll switches for a selection
       for (int sw = 0; sw < num_switches; sw++) {
-        byte sw_id  = pseudo_toggles[sw][2];
+        byte sw_id  = pseudo_toggles[sw][2];  // switch id given by add_switch
         bool sw_status = my_switches.read_switch(sw_id);
         if (sw_status == switched &&
             my_switches.switches[sw_id].switch_status == !on) {

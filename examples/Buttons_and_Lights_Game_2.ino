@@ -14,7 +14,7 @@
    Game flow:
    - game starts by blinking all 4 leds 4 times
    - a sequence of 4, 5 or 6 leds are then illuminated, in turn, at the end
-     of which a 20 second timer then starts within which the sequence must
+     of which a timer then starts (user variable) within which the sequence must
      be entered on the button switches, each button switch one coresponding to an
      associated led
    - if correct sequence is entered then the green led will flash 5 times

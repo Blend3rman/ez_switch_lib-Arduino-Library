@@ -1,7 +1,7 @@
 # Arduino Switch Library for configuring different switch type wired
 # in common circuit schemes.
 #
-# Ron Bentley, Stafford (UK), March 2021, version 1.00
+# Ron Bentley, Stafford (UK), March 2021, version 1.01
 #
 # This example and code is in the public domain and
 # may be used without restriction and without warranty.
@@ -20,6 +20,7 @@ switch_on_value	KEYWORD2
 switch_status	KEYWORD2
 switch_out_pin	KEYWORD2
 switch_out_pin_status	KEYWORD2
+last_switched_id	KEYWORD2
 
 # private variables
 _debounce	KEYWORD2

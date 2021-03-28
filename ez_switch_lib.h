@@ -1,7 +1,7 @@
 // Arduino Switch Library for configuring different switch type wired
 // in common circuit schemes.
 //
-// Ron Bentley, Stafford (UK), March 2021, version 1.00
+// Ron Bentley, Stafford (UK), March 2021, version 1.01
 //
 // This example and code is in the public domain and
 // may be used without restriction and without warranty.
@@ -47,6 +47,8 @@ class Switches
       bool switch_out_pin_status;       // the status of the mapped pin
 
     } *switches;                        // memory will be created when class is initiated
+
+    byte last_switched_id;
 
     // Functions available to end users
     bool read_switch           (byte sw);

@@ -1,7 +1,7 @@
 // Arduino Switch Library for configuring different switch type wired
 // in common circuit schemes.
 //
-// Ron Bentley, Stafford (UK), March 2021, version 1.00
+// Ron Bentley, Stafford (UK), March 2021, version 1.01
 //
 // This example and code is in the public domain and
 // may be used without restriction and without warranty.
@@ -87,6 +87,7 @@ bool Switches::read_toggle_switch(byte sw) {
         // Debounce period elapsed so assume switch has settled down after transition
         switches[sw].switch_status  = !switches[sw].switch_status;  // flip status
         switches[sw].switch_pending = false;                        // cease transition cycle
+        last_switched_id = sw;   // indicates the last switch to have been processed by read function
         return switched;
      }
   }
@@ -118,6 +119,7 @@ bool Switches::read_button_switch(byte sw) {
     if (millis() - switches[sw].switch_db_start >= _debounce) {
       // dounce time elapsed, so switch press cycle complete
       switches[sw].switch_pending = false;
+      last_switched_id = sw;   // indicates the last switch to have been processed by read function
       return switched;
     }
   }

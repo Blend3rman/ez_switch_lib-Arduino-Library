@@ -35,7 +35,7 @@
 // pins 3, 4, 5 and 6 as the switch pins.
 //
 // For an understanding of the capabilities of the 'ez_switch_lib' library see the USER GUIDE:
-// https://github.com/ronbentley1/ez_switch_lib-Arduino-Library/blob/main/ez_switch_lib_user_guide%2C%20v1.02.pdf
+// https://github.com/ronbentley1/ez_switch_lib-Arduino-Library/blob/main/ez_switch_lib_user_guide%2C%20v1.03.pdf
 //
 // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 

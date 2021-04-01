@@ -30,6 +30,7 @@ class Switches
 #define add_failure          -1      // add_swith could not insert a given switch, ie no space left
 #define link_success          0      // output successfully linked to a switch
 #define link_failure         -1      // output pin could not be linked to a switch
+#define none_switched	    255	     // 'last_switched_id' initialised to this vale
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // %                   Switch Control Sruct(ure) Declaration                 %
@@ -48,14 +49,14 @@ class Switches
 
     } *switches;                        // memory will be created when class is initiated
 
-    byte last_switched_id;
+    byte last_switched_id = none_switched;
 
     // Functions available to end users
     bool read_switch           (byte sw);
     bool read_toggle_switch    (byte sw);
     bool read_button_switch    (byte sw);
     int  add_switch            (byte sw_type, byte sw_pin, byte circ_type);
-    int  link_switch_to_output(byte switch_id, byte output_pin, bool HorL);
+    int  link_switch_to_output (byte switch_id, byte output_pin, bool HorL);
     int  num_free_switch_slots ();
     void set_debounce          (int period);
     void print_switch          (byte sw);
@@ -64,7 +65,7 @@ class Switches
   private:
     byte _num_entries  = 0;  // used for adding switches to switch control structure/list
     byte _max_switches = 0;  // max switches user has initialise
-    int _debounce      = 10; // 10 milliscs if not specified by user code
+    int _debounce      = 10; // 10 millisecs if not specified by user code
 };
 
 #endif

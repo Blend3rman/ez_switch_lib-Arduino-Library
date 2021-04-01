@@ -30,7 +30,7 @@ class Switches
 #define add_failure          -1      // add_swith could not insert a given switch, ie no space left
 #define link_success          0      // output successfully linked to a switch
 #define link_failure         -1      // output pin could not be linked to a switch
-#define none_switched	    255	     // 'last_switched_id' initialised to this vale
+#define none_switched	    255	     // 'last_switched_id' initialised to this value
 
     // %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     // %                   Switch Control Sruct(ure) Declaration                 %

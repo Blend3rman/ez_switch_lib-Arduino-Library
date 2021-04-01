@@ -34,6 +34,9 @@ The following features are provided by the <ez_switch_lib> library:
 - specific toggle switch read function
 - error trapping from read and linking functions
 - direct access to all switch control variables
+- support for multiple switches linked to a single interrupt service routine (ISR), with switch type
+  and circuit wiring scheme independence, plus full debounce handling of all switches 
+  (see Corollary section of User Guide for working example)
 - switch control status reporting via serial monitor
 - reserved library macro definitions for use by end user, supporting self documenting sketch code
 - a comprehensive User Guide

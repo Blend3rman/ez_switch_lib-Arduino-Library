@@ -41,6 +41,6 @@ The following features are provided by the <ez_switch_lib> library:
 - reserved library macro definitions for use by end user, supporting self documenting sketch code
 - a comprehensive User Guide
 
-The User Guide provides a comprehensive exposition of the scope and capabilities of the <ez_switch_lib> library, including working example sketches. For a full appreciation of the <ez_switch_lib> library capabilities download the User Guide from github by following the link below.
+The User Guide provides a comprehensive exposition of the scope and capabilities of the <ez_switch_lib> library, including working example sketches. For a full appreciation of the <ez_switch_lib> library capabilities download the User Guide from github.
 
 <end>

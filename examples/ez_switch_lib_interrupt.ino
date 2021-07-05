@@ -51,14 +51,13 @@ int     interrupt_pin =  2;  // external interrupt pin
 // [][1] = digital output pin connected to switch
 // [][2] = the switch_id provided by the add_switch function for the switch declared
 // [][3] = the circuit type connecting the switch, here the first 3 switches
-//         will have 10k ohm pull down resistors wired, whilst the 4th switch
-//         will be wired directly without an external pull down resistor
+//         will have 10k ohm pull down resistors wired
 byte my_switches[num_switches][4] =
 {
   button_switch,  3, 0, circuit_C1,
   button_switch,  4, 0, circuit_C1,
   toggle_switch,  5, 0, circuit_C1,
-  toggle_switch,  6, 0, circuit_C2
+  toggle_switch,  6, 0, circuit_C1
 };
 
 // Create the 'Switches' instance (ms) for the given number of switches

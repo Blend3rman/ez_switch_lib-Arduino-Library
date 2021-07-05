@@ -50,7 +50,7 @@ int     interrupt_pin =  2;  // external interrupt pin
 // [][0] = switch type
 // [][1] = digital output pin connected to switch
 // [][2] = the switch_id provided by the add_switch function for the switch declared
-// [][3] = the circuit type connecting the switch, here the first 3 switches
+// [][3] = the circuit type connecting the switch, here the switches
 //         will have 10k ohm pull down resistors wired
 byte my_switches[num_switches][4] =
 {

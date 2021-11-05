@@ -48,7 +48,7 @@ int     interrupt_pin =  2;  // external interrupt pin
 // 'my_switches' layout.
 // one row of data for each switch to be configured, as follows:
 // [][0] = switch type
-// [][1] = digital output pin connected to switch
+// [][1] = digital input pin the switch is wired to
 // [][2] = the switch_id provided by the add_switch function for the switch declared
 // [][3] = the circuit type connecting the switch, here the switches
 //         will have 10k ohm pull down resistors wired

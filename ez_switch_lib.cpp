@@ -17,7 +17,7 @@
 Switches::Switches(byte max_switches)
 {
   // Establish the switch control structure (switches) of the size required
-  switches = malloc(sizeof(*switches) * max_switches);
+  switches = (switch_control *)malloc(sizeof(*switches) * max_switches);
   if (switches == NULL) {
     // malloc failure
     Serial.begin(9600);
